@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import fs from "fs";
 import pdfParse from "pdf-parse";
 import dataUri from "../lib/dataUri";
-import { exec } from "child_process"; // Not used in this function
+import { config } from "../config/config";
 import axios from "axios";
 
 const decodeBase64 = (text: string) => {
@@ -42,10 +41,10 @@ export const uploadFiles = async (req: Request, res: Response) => {
     return res.status(400).send("Unsupported file type.");
   }
 
-  console.log("Data - ", text);
+  
 
   // Consider using environment variables for API keys
-  const apiKey = 'AIzaSyD7ES3IQmg8yROQE9LSkolPGzvr2XPFfJE'; // Replace with your actual environment variable name
+  const apiKey = config.GCP // Replace with your actual environment variable name
   const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
   const payload = {
     audioConfig: {
