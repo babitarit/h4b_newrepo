@@ -4,7 +4,7 @@ import axios from "axios";
 
 const FileUpload: React.FC = () => {
   const [file, setFile] = useState<File | null | undefined>(null);
-  const [audioData, setAudioData] = useState<string>(""); // Store audio URL as a string
+  const [audioData, setAudioData] = useState<string>(""); 
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -32,17 +32,17 @@ const FileUpload: React.FC = () => {
         }
       );
 
-      // Assuming your API endpoint returns the audio data directly
+      
       const { audioContent } = response.data;
 
-      // Create a Blob URL for the audio content
+     
       const audioBlob = new Blob(
         [new Uint8Array(Buffer.from(audioContent, "base64"))],
         { type: "audio/mp3" }
       );
       const audioUrl = URL.createObjectURL(audioBlob);
 
-      setAudioData(audioUrl); // Update state with the audio URL
+      setAudioData(audioUrl); 
     } catch (error) {
       console.error("Error uploading file:", error);
     }
@@ -54,7 +54,7 @@ const FileUpload: React.FC = () => {
         <input type="file" onChange={handleFileChange} />
         <button type="submit">Upload</button>
       </form>
-      {audioData && ( // Check if audioData exists
+      {audioData && ( 
         <audio controls src={audioData} />
       )}
     </div>
