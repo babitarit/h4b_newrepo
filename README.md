@@ -1,81 +1,106 @@
-# Turborepo starter
+# Tech4All
 
-This is an official starter Turborepo.
+## Project Description
 
-## Using this example
+**Tech4All** is a forward-thinking project that aims to promote inclusivity in the digital world by creating tech solutions accessible to differently-abled individuals. Our mission is to ensure full participation and empowerment through inclusive design and technology.
 
-Run the following command:
+### Key Features
 
-```sh
-npx create-turbo@latest
-```
+- **PDF to Speech**: Integrates Google Cloud AI API to convert PDF documents to spoken word, making textual information accessible to visually impaired users.
+- **E-Learning Platform**: A robust backend to support an inclusive e-learning platform, allowing users of all abilities to access educational content.
+  ![image](https://github.com/priyankarpal/projectshut/assets/88102392/616c4b97-7468-4912-a28c-6893dba0f19a)
 
-## What's inside?
+![c](https://github.com/priyankarpal/projectshut/assets/88102392/a161f613-2cf3-4148-8b32-0f2526735b85)
 
-This Turborepo includes the following packages/apps:
+### Tech Stack
 
-### Apps and Packages
+**Frontend**:
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- Next.js with TailwindCSS
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+**Backend**:
 
-### Utilities
+- Express.js with TypeScript
+- Prisma with PostgreSQL
+- AWS EC2
+- Google Cloud AI API (Text-to-Speech)
+- Turborepo
 
-This Turborepo has some additional tools already setup for you:
+## Getting Started
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+### Prerequisites
 
-### Build
+Make sure you have the following installed:
 
-To build all apps and packages, run the following command:
+- Node.js
+- pnpm
 
-```
-cd my-turborepo
-pnpm build
-```
+### Installation
 
-### Develop
+1. Clone the repository:
 
-To develop all apps and packages, run the following command:
+2. Install dependencies using pnpm:
+   ```bash
+   pnpm install
+   ```
 
-```
-cd my-turborepo
-pnpm dev
-```
+### Configuration
 
-### Remote Caching
+1. Set up environment variables:
+   Create a `.env` file in the `apps/server` directory and add your configuration details:
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+   ```env
+   PORT = 5000
+   DATABASE_URL=""
+   JWT_SECRET=""
+   JWT_COOKIE_EXPIRES_IN="3d"
+   DEV_MODE=DEV
+   BACKENDURL=http://localhost:5000
+   EMAIL=
+   PASSWORD=
+   GCP=
+   ```
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+2. Add another `.env` in the `apps/web`
 
-```
-cd my-turborepo
-npx turbo login
-```
+   ```env
+   NEXT_PUBLIC_BACKENDURL=http://localhost:5000
+   ```
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Running the Application
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+1. Start the development server:
 
-```
-npx turbo link
-```
+   ```bash
+   pnpm dev
+   ```
 
-## Useful Links
+2. The application should now be running on `http://localhost:3000` for client & `http://localhost:5000` for server
 
-Learn more about the power of Turborepo:
+### Contributing
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+We welcome contributions from everyone. Here’s how you can help:
+
+1. Fork the repository.
+2. Create a new branch.
+   ```bash
+   git checkout -b feature-branch
+   ```
+3. Make your changes.
+4. Commit your changes.
+   ```bash
+   git commit -m "Description of changes"
+   ```
+5. Push to your branch.
+   ```bash
+   git push origin feature-branch
+   ```
+6. Create a pull request.
+
+### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Together, we can build a more inclusive digital world. Thank you for being a part of Tech4All.
