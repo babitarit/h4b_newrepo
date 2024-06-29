@@ -518,12 +518,24 @@
 import { CogIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
+import React, { useEffect } from 'react';
+
 const navigation = [
     { name: 'Home', href: '#' },
     { name: 'Vision', href: '#vision' },
     { name: 'Features', href: '#features' },
     { name: 'Contact', href: '#contact' },
 ];
+
+function speakText(text: string) {
+    const synth = window.speechSynthesis;
+    if (synth.speaking) {
+        synth.cancel(); // Cancel any ongoing speech
+    }
+    const utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+}
+
 
 export default function Hero() {
     const [settingsDialogOpen, setSettingsDialogOpen] = useState(false);
@@ -537,6 +549,28 @@ export default function Hero() {
         document.documentElement.style.setProperty('--color-contrast', colorContrast);
     };
 
+    useEffect(() => {
+        const elements = document.querySelectorAll<HTMLElement>('[data-hover-read]');
+        const handleMouseEnter = (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+            const text = target.getAttribute('data-hover-read');
+            if (text) {
+                speakText(text);
+            }
+        };
+
+        elements.forEach(element => {
+            element.addEventListener('mouseenter', handleMouseEnter);
+        });
+
+        return () => {
+            elements.forEach(element => {
+                element.removeEventListener('mouseenter', handleMouseEnter);
+            });
+        };
+    }, []);
+
+
     return (
         <div className="bg-white" style={{ color: `var(--color-contrast)` }}>
             <header className="absolute inset-x-0 top-0 z-50">
@@ -548,20 +582,20 @@ export default function Hero() {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12 lg:justify-center">
                         {navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900" data-hover-read={item.name}>
                                 {item.name}
                             </a>
                         ))}
                     </div>
                     <div className="flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-6">
-                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                        <a href="#" className="text-sm font-semibold leading-6 text-gray-900" data-hover-read="log in">
                             Log in <span aria-hidden="true">&rarr;</span>
                         </a>
                         <button
-                            className="text-gray-700 p-2.5 rounded-md"
+                            className="text-gray-700 p-2.5 rounded-md" data-hover-read="Settings"
                             onClick={() => setSettingsDialogOpen(true)}
                         >
-                            <span className="sr-only">Settings</span>
+                            <span className="sr-only"  >Settings</span>
                             <CogIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
                     </div>
@@ -636,7 +670,7 @@ export default function Hero() {
                 </div>
                 <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
                     <div className="text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl" data-hover-read=" Enhance your learning with Accessibility">
                             Enhance your learning with Accessibility
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -646,11 +680,11 @@ export default function Hero() {
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a
                                 href="#features"
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" data-hover-read="Features"
                             >
                                 Features
                             </a>
-                            <a href="#vision" className="text-sm font-semibold leading-6 text-gray-900">
+                            <a href="#vision" className="text-sm font-semibold leading-6 text-gray-900" data-hover-read="Explore">
                                 Explore <span aria-hidden="true">→</span>
                             </a>
                         </div>
@@ -672,8 +706,5 @@ export default function Hero() {
         </div>
     );
 }
-
-
-
 
 
