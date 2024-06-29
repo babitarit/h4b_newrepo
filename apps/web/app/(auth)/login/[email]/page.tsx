@@ -53,17 +53,17 @@ export default function page() {
                 Enter Your <span className="text-violet-700">OTP</span>
               </h2>
 
-              <div className="flex flex-col space-y-16">
+              <div className="flex flex-col space-y-12">
                 <div className="flex flex-row items-center justify-between mx-auto w-full max-w-[27rem]">
                   {otp.map((value, index) => (
-                    <div className="w-16 h-16" key={index}>
+                    <div className="w-12 h-14" key={index}>
                       <input
                         ref={(el) => {
                           if (el && refs.current[index] !== el) {
                             refs.current[index] = el;
                           }
                         }}
-                        className="w-full h-full flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-600 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:border-none ring-rose-700"
+                        className="w-full h-full flex flex-col items-center justify-center text-center px-4 outline-none rounded-xl border border-gray-600 text-lg bg-white focus:bg-gray-50 focus:ring-1 focus:border-none ring-violet-700"
                         type="text"
                         value={value}
                         onChange={(e) => handleChange(index, e.target.value)}
@@ -76,7 +76,7 @@ export default function page() {
               <div className="mt-7">
                 <button
                   disabled={isLoading}
-                  className="flex flex-row items-center justify-center text-center w-full border rounded-xl hover:bg-indigo-400 outline-none py-5 bg-indigo-500 border-none text-white shadow-sm text-base font-semibold"
+                  className="ml-14 flex flex-row items-center justify-center text-center w-[210px] border rounded-3xl hover:bg-violet-400 outline-none py-4 bg-violet-500 border-none text-white shadow-sm text-base font-semibold"
                 >
                   {isLoading ? <ButtonLoder /> : <p>Verify Account</p>}
                 </button>
