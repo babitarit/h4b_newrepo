@@ -25,6 +25,8 @@ const FileUpload: React.FC = () => {
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKENDURL}/api/v0.1/upload`,
         formData,
+
+        
         {
           headers: {
             "Content-Type": "multipart/form-data",
