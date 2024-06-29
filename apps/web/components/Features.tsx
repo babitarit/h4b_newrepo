@@ -1,23 +1,47 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid';
+// import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid';
+
+// const features = [
+//     {
+//         name: 'Text to speech',
+//         description:
+//             'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+//         icon: CloudArrowUpIcon,
+//     },
+//     {
+//         name: 'Sign chart',
+//         description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
+//         icon: LockClosedIcon,
+//     },
+//     {
+//         name: 'Learning Module',
+//         description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
+//         icon: ServerIcon,
+//     },
+// ];
+
+
+import { SpeakerWaveIcon, ChatBubbleLeftRightIcon, BookOpenIcon } from '@heroicons/react/20/solid';
 
 const features = [
     {
         name: 'Text to speech',
-        description:
-            'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
-        icon: CloudArrowUpIcon,
+        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+        icon: SpeakerWaveIcon,
     },
     {
         name: 'Sign chart',
         description: 'Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.',
-        icon: LockClosedIcon,
+        icon: ChatBubbleLeftRightIcon, // Use a chat bubble icon for sign language representation
     },
     {
         name: 'Learning Module',
         description: 'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.',
-        icon: ServerIcon,
+        icon: BookOpenIcon,
     },
 ];
+
+
+
 
 export default function Features() {
     return (
