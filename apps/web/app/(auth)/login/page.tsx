@@ -5,7 +5,7 @@ import log_img from "../../../public/Login.png";
 import googlelogo from "../../../public/Google logo.png";
 import Image from "next/image";
 import { useLogin } from "../../../hooks/useLogin";
-
+import ButtonLoder from "../../../components/ButtonLoder";
 import { Alata } from "next/font/google";
 
 export const alata = Alata({
@@ -73,9 +73,8 @@ export default function Page(): JSX.Element {
               className="w-full mt-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all p-2 rounded-xl bg-violet-700 text-white text-lg font-bold"
               key="1"
               disabled={isLoading}
-              
             >
-              Login
+              {isLoading ? <ButtonLoder /> : <p>Login</p>}
             </button>
             <h5 className=" text-center mb-2 mt-2">or</h5>
             <div className="flex items-center justify-center ">
