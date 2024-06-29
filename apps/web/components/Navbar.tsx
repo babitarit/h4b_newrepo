@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
       </div>
       {/* Navigation Links */}
       <ul className={`md:flex md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} md:block md:space-y-2`}>
-      <li className="mx-2 md:mx-4"><a href="#" onClick={handleLinkClick}></a></li>
+        <li className="mx-2 md:mx-4"><a href="#" onClick={handleLinkClick}></a></li>
         <li className="mx-2 md:mx-4"><a href="#screen" onClick={handleLinkClick}>Screen Reader</a></li>
         <li className="mx-2 md:mx-4"><a href="#vision" onClick={handleLinkClick}>Vision</a></li>
         <li className="mx-2 md:mx-4"><a href="#features" onClick={handleLinkClick}>Features</a></li>

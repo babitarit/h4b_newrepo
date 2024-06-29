@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const config = {
-  PORT: process.env.PORT || 5050,
+  PORT: process.env.PORT || 5000,
   JWT_SECRET: process.env.JWT_SECRET || "sdfsbvdsbdfbdfbndfkbdfkjbhdkjfb",
   JWT_COOKIE_EXPIRES_IN: process.env.JWT_COOKIE_EXPIRES_IN || "3d",
   DEV_ENV: process.env.DEV_MODE,
@@ -12,5 +12,5 @@ export const config = {
   EMAIL: process.env.EMAIL,
   PASSWORD: process.env.PASSWORD,
   EMAIL_SERVICE: process.env.EMAIL_SERVICE,
-  GCP : process.env.GCP
+  GCP: process.env.GCP
 };
