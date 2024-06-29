@@ -3,6 +3,99 @@
 @tailwind utilities;
 
 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+
+
+
+
+/* Global styles with CSS custom properties */
+
+/* Root variables for global styling */
+:root {
+    --font-size: 16px;
+    --color-contrast: normal;
+    --text-spacing: normal;
+    --color-saturation: 1;
+    --text-align: left;
+  }
+  
+  /* Apply font size to the body */
+  body {
+    font-size: var(--font-size);
+    color: var(--color-contrast);
+    letter-spacing: var(--text-spacing);
+    text-align: var(--text-align);
+    /* Add a default font family if needed */
+   
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Adjust contrast based on the color-contrast variable */
+  body.normal-contrast {
+    color: #333;
+    background-color: #fff;
+  }
+  
+  body.high-contrast {
+    color: #fff;
+    background-color: #000;
+  }
+  
+  /* Adjust text spacing based on the text-spacing variable */
+  body.normal-spacing {
+    letter-spacing: normal;
+  }
+  
+  body.wide-spacing {
+    letter-spacing: 0.8em;
+  }
+  
+  /* Adjust color saturation if required */
+  body {
+    filter: saturate(var(--color-saturation));
+  }
+  
+  /* Text alignment */
+  body {
+    text-align: var(--text-align);
+  }
+  
+  /* Dark theme styles if applicable */
+  body.dark {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+  
+  /* Ensure any elements that might need spacing adjustments respect the global settings */
+  p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+  }
+  
+  /* Example of applying custom font families */
+  body.dyslexia-font-comic-sans {
+    font-family: 'Comic Sans MS';
+  }
+  
+  body.dyslexia-font-arial {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Responsive adjustments if needed */
+  @media (max-width: 768px) {
+    body {
+      font-size: calc(var(--font-size) - 2px);
+    }
+  }
+  
+
+
 
 .loader-container{
     display: flex;
@@ -42,3 +135,4 @@
     transform: rotate(360deg);
   }
 }
+
