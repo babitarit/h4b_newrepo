@@ -30,8 +30,9 @@ export interface LoginData {
 export interface RegisterFormData {
   email: string;
   password: string;
-  username: string;
-  phonenumber: string;
+  name: string;
+  phone: string;
+
 }
 
 export interface LoginVerifyData {

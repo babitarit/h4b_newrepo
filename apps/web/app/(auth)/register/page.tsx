@@ -37,12 +37,13 @@ export default function Page(): JSX.Element {
     setPhonenumber(event.target.value);
   };
 
-  const handleClick = async () => {
+  const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const registerData = {
       email,
       password,
-      username,
-      phonenumber,
+      name: username,
+      phone: phonenumber,
     };
 
     await register(registerData);
@@ -58,7 +59,7 @@ export default function Page(): JSX.Element {
           />
         </div>
         <div className="p-4 flex flex-col justify-around">
-          <form>
+          <form onSubmit={handleClick}>
             <h2 className="text-4xl font-medium text-center mb-8">
               Create Your <span className="text-violet-700">Account</span>
             </h2>
@@ -103,7 +104,6 @@ export default function Page(): JSX.Element {
             <button
               className=" w-full mt-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all p-2 rounded-xl  bg-violet-700 text-white text-lg font-bold"
               key="1"
-              onClick={handleClick}
             >
               Register
             </button>
