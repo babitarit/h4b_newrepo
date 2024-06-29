@@ -10,16 +10,22 @@ export const useRegister = () => {
   const [isSucess, setisSucess] = useState<boolean>(false);
   const router = useRouter();
 
-  const register = async ({ name, email, password }: RegisterFormData) => {
+  const register = async ({
+    email,
+    password,
+    username,
+    phonenumber,
+  }: RegisterFormData) => {
     setisLoading(true);
     setError(false);
     try {
       await axios.post(
         `${process.env.NEXT_PUBLIC_BACKENDURL}/api/v0.1/auth/register`,
         {
-          name,
           email,
           password,
+          username,
+          phonenumber,
         }
       );
       setisSucess(true);
