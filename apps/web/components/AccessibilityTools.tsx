@@ -120,7 +120,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 const AccessibilityTools = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-  const settingsRef = useRef(null);
+  const settingsRef = useRef<HTMLDivElement | null>(null);
 
   const tools = [
     {
@@ -201,7 +201,7 @@ const AccessibilityTools = () => {
     },
   ];
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: { target: any; }) => {
     if (settingsRef.current && !settingsRef.current.contains(event.target)) {
       setIsSettingsOpen(false);
     }
