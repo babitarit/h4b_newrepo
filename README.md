@@ -22,9 +22,12 @@
 
 - Express.js with TypeScript
 - Prisma with PostgreSQL
-- AWS EC2
-- Google Cloud AI API (Text-to-Speech)
 - Turborepo
+
+**Cloud & AI**
+
+- AWS EC2
+- Google Cloud tts API (Text-to-Speech)
 
 ## Getting Started
 
