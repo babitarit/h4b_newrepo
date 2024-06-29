@@ -23,7 +23,7 @@ const FileUpload: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5050/api/v0.1/upload",
+        `${process.env.NEXT_PUBLIC_BACKENDURL}/api/v0.1/upload`,
         formData,
         {
           headers: {
