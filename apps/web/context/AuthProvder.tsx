@@ -1,7 +1,7 @@
 "use client";
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useEffect, useReducer } from "react";
 
-import { State, Action, AuthContextProviderProps, User } from "../interfaces";
+import { Action, AuthContextProviderProps, State, User } from "../interfaces";
 
 const initialState: State = {
   user: null,

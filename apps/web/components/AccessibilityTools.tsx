@@ -116,7 +116,7 @@
 // export default AccessibilityTools;
 
 
-import React, { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const AccessibilityTools = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -247,7 +247,7 @@ const AccessibilityTools = () => {
           ))}
         </div>
       </div>
-
+      {/* 
       {isSettingsOpen && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex justify-center items-center z-50" ref={settingsRef}>
           <div className="bg-white w-60 md:w-2/3 h-70 md:h-3/4 p-8 rounded shadow-lg">
@@ -316,7 +316,7 @@ const AccessibilityTools = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </section>
   );
 };
