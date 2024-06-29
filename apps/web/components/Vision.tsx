@@ -19,12 +19,7 @@ const features = [
             'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
         icon: ArrowPathIcon,
     },
-    // {
-    //     name: 'Advanced security',
-    //     description:
-    //         'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    //     icon: FingerPrintIcon,
-    // },
+    
 ];
 
 export default function Vision() {
