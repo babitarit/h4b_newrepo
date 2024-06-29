@@ -11,10 +11,10 @@ export const useRegister = () => {
   const router = useRouter();
 
   const register = async ({
+    name,
     email,
     password,
-    username,
-    phonenumber,
+    phone,
   }: RegisterFormData) => {
     setisLoading(true);
     setError(false);
@@ -24,8 +24,8 @@ export const useRegister = () => {
         {
           email,
           password,
-          username,
-          phonenumber,
+          name,
+          phone,
         }
       );
       setisSucess(true);
