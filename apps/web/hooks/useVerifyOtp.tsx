@@ -18,8 +18,8 @@ export const useVerifyLogin = () => {
     console.log("working");
 
     try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKENDURL}/api/v0.1/auth/verify-login/${email}?token=${otp}`
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_BACKENDURL}/api/v0.1/auth/verify-otp/${email}?token=${otp}`
       );
       console.log(response.data);
 
