@@ -20,8 +20,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen w-full">
       {/* <Navbar /> */}
       <Hero />
-      {/* <AccessibilityTools /> */}
-
+      {/* <AccessibilityTools /> */} 
       <section id="vision">
         <Vision />
       </section>
