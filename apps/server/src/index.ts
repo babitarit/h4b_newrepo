@@ -15,7 +15,7 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(config.DEV_ENV === "PROD" ? cors(corsOptions) : cors());
+app.use(cors());
 app.use(limiter);
 
 app.use("/api/v0.1/auth", authRoutes);
