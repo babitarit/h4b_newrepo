@@ -6,6 +6,7 @@ import Contact from "../../components/Contact";
 import Features from "../../components/Features";
 import Footer from "../../components/Footer";
 import Hero from "../../components/Hero";
+import Vision from "../../components/Vision";
 
 
 
@@ -21,9 +22,9 @@ export default function Home() {
       <Hero />
       {/* <AccessibilityTools /> */}
 
-      {/* <section id="vision">
+      <section id="vision">
         <Vision />
-      </section> */}
+      </section>
       <section id="features">
         <Features />
       </section>
