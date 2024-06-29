@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import axios from "axios";
-import { RegisterFormData } from "../interfaces";
 import { useRouter } from "next/navigation";
+import { RegisterFormData } from "../interfaces";
 
 export const useRegister = () => {
   const [error, setError] = useState<boolean>(false);
