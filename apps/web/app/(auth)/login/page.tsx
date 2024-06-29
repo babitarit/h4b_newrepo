@@ -93,6 +93,16 @@ export default function Page(): JSX.Element {
                 <Link href="/register">Register</Link>
               </button>
             </div>
+            {error && (
+              <div className="bg-rose-200 text-rose-500 p-5 rounded-lg mt-4">
+                Invalid credentials or Email is not verified.
+              </div>
+            )}
+            {isSucess && (
+              <div className="bg-slate-200 text-violet-500 p-5 rounded-lg mt-4">
+                OTP Send Successfully!
+              </div>
+            )}
           </form>
         </div>
       </div>

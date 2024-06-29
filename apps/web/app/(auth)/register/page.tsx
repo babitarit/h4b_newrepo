@@ -126,6 +126,16 @@ export default function Page(): JSX.Element {
                 <Link href="/login">Login</Link>
               </button>
             </div>
+            {error && (
+              <div className="bg-rose-200 text-rose-500 p-5 rounded-lg mt-4">
+                Invalid credentials.
+              </div>
+            )}
+            {isSucess && (
+              <div className="bg-slate-200 text-violet-600 p-5 rounded-lg mt-4">
+                Register Done!, A Verification link send to your Gmail.
+              </div>
+            )}
           </form>
         </div>
       </div>
