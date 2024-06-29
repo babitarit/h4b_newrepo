@@ -172,8 +172,8 @@
 
 
 
+import { Bars3Icon, CogIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
-import { Bars3Icon, XMarkIcon, CogIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
     { name: 'Home', href: '#' },
@@ -190,7 +190,7 @@ export default function Hero() {
         <div className="bg-white">
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-                    <div className="flex lg:flex-1">
+                    {/* <div className="flex lg:flex-1">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">Your Company</span>
                             <img
@@ -218,7 +218,77 @@ export default function Hero() {
                             <span className="sr-only">Settings</span>
                             <CogIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
+                    </div> */}
+
+
+                    <div className="bg-white">
+                        <header className="absolute inset-x-0 top-0 z-50">
+                            <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+                                <div className="flex lg:flex-1">
+                                    <a href="#" className="-m-1.5 p-1.5">
+                                        <span className="sr-only">Your Company</span>
+                                        <img
+                                            className="h-8 w-auto"
+                                            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                                            alt=""
+                                        />
+                                    </a>
+                                </div>
+                                <div className="hidden lg:flex lg:gap-x-12 lg:justify-center">
+                                    {navigation.map((item) => (
+                                        <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                                            {item.name}
+                                        </a>
+                                    ))}
+                                </div>
+                                <div className="flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-6">
+                                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                        Log in <span aria-hidden="true">&rarr;</span>
+                                    </a>
+                                    <button
+                                        className="text-gray-700 p-2.5 rounded-md"
+                                        onClick={() => setSettingsDialogOpen(true)}
+                                    >
+                                        <span className="sr-only">Settings</span>
+                                        <CogIcon className="h-6 w-6" aria-hidden="true" />
+                                    </button>
+                                </div>
+                            </nav>
+                        </header>
+                        {settingsDialogOpen && (
+                            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                                <div className="bg-white w-60 md:w-2/3 h-70 md:h-3/4 p-8 rounded shadow-lg">
+                                    <h3 className="text-lg font-semibold mb-2 text-center">Personalized Settings</h3>
+                                    <ul className="space-y-4">
+                                        <li className="flex justify-between items-center">
+                                            <span>Font Size</span>
+                                            <input
+                                                type="text"
+                                                value={'16px'}
+                                                className="border p-1 rounded"
+                                            />
+                                        </li>
+                                        {/* Other settings items */}
+                                    </ul>
+                                    <div className="flex justify-between mt-8">
+                                        <button
+                                            className="bg-gray-300 text-gray-900 font-bold py-2 px-4 rounded hover:bg-gray-400 transition"
+                                            onClick={() => setSettingsDialogOpen(false)}
+                                        >
+                                            Close
+                                        </button>
+                                        <button
+                                            className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition"
+                                        >
+                                            Apply
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
+
+
                     <div className="flex lg:hidden">
                         <button
                             type="button"
@@ -229,58 +299,37 @@ export default function Hero() {
                             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                         </button>
                     </div>
-                </nav>
-                {settingsDialogOpen && (
-                    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center">
-                        <div className="bg-white rounded-lg p-6 max-w-md">
-                            <div className="text-center">
-                                <h2 className="text-2xl font-bold text-red-600 mb-4">Accessibility Features</h2>
-                                <p className="text-red-600 text-lg">Customize your accessibility settings:</p>
-                                <ul className="text-red-600 space-y-2">
-                                    <li>Option 1: Screen Reader Support</li>
-                                    <li>Option 2: High Contrast Mode</li>
-                                </ul>
-                            </div>
-                            <div className="flex justify-end mt-6">
+                </nav >
+                {
+                    mobileMenuOpen && (
+                        <div className="fixed inset-0 z-50 bg-white">
+                            <div className="flex flex-col items-end p-6 space-y-4">
                                 <button
-                                    className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                                    onClick={() => setSettingsDialogOpen(false)}
+                                    className="rounded-md p-2 text-gray-700"
+                                    onClick={() => setMobileMenuOpen(false)}
                                 >
-                                    Close
+                                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                    <span className="sr-only">Close menu</span>
                                 </button>
+                                {navigation.map((item) => (
+                                    <a
+                                        key={item.name}
+                                        href={item.href}
+                                        className="block py-2 text-base font-semibold text-gray-900 hover:bg-gray-50 rounded-lg px-3"
+                                    >
+                                        {item.name}
+                                    </a>
+                                ))}
+                                <a
+                                    href="#"
+                                    className="block py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50 rounded-lg px-3"
+                                >
+                                    Log in
+                                </a>
                             </div>
                         </div>
-                    </div>
-                )}
-                {mobileMenuOpen && (
-                    <div className="fixed inset-0 z-50 bg-white">
-                        <div className="flex flex-col items-end p-6 space-y-4">
-                            <button
-                                className="rounded-md p-2 text-gray-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                                <span className="sr-only">Close menu</span>
-                            </button>
-                            {navigation.map((item) => (
-                                <a
-                                    key={item.name}
-                                    href={item.href}
-                                    className="block py-2 text-base font-semibold text-gray-900 hover:bg-gray-50 rounded-lg px-3"
-                                >
-                                    {item.name}
-                                </a>
-                            ))}
-                            <a
-                                href="#"
-                                className="block py-2.5 text-base font-semibold text-gray-900 hover:bg-gray-50 rounded-lg px-3"
-                            >
-                                Log in
-                            </a>
-                        </div>
-                    </div>
-                )}
-            </header>
+                    )}
+            </header >
             <div className="relative isolate px-6 pt-14 lg:px-8">
                 <div
                     className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -317,10 +366,10 @@ export default function Hero() {
                                 href="#"
                                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
-                               Features
+                                Features
                             </a>
                             <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                               Explore <span aria-hidden="true">→</span>
+                                Explore <span aria-hidden="true">→</span>
                             </a>
                         </div>
                     </div>
@@ -338,6 +387,6 @@ export default function Hero() {
                     />
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
