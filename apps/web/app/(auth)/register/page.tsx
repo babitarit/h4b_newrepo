@@ -46,7 +46,14 @@ export default function Page(): JSX.Element {
       phone: phonenumber,
     };
 
-    await register(registerData);
+    try {
+      
+      await register(registerData);
+    } catch (error) {
+      console.log(error);
+      
+    }
+
   };
   return (
     <main className="w-full h-screen flex">
@@ -104,6 +111,7 @@ export default function Page(): JSX.Element {
             <button
               className=" w-full mt-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all p-2 rounded-xl  bg-violet-700 text-white text-lg font-bold"
               key="1"
+              disabled={isLoading}
             >
               Register
             </button>

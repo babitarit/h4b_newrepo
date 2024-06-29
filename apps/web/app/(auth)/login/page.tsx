@@ -26,7 +26,8 @@ export default function Page(): JSX.Element {
     setPassword(event.target.value);
   };
 
-  const handleClick = async () => {
+  const handleClick = async (event: React.FormEvent<HTMLFormElement>) => {
+     event.preventDefault();
     const loginData = {
       email,
       password,
@@ -41,7 +42,7 @@ export default function Page(): JSX.Element {
           <Image src={log_img} alt="efef" />
         </div>
         <div className="p-4 flex flex-col justify-around">
-          <form>
+          <form onSubmit={handleClick}>
             <h2 className="text-4xl font-medium text-center mb-8">
               Access Your <span className="text-violet-700">Account</span>
             </h2>
@@ -71,7 +72,8 @@ export default function Page(): JSX.Element {
             <button
               className="w-full mt-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all p-2 rounded-xl bg-violet-700 text-white text-lg font-bold"
               key="1"
-              onClick={handleClick}
+              disabled={isLoading}
+              
             >
               Login
             </button>

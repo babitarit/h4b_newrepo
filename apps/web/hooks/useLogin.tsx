@@ -25,7 +25,7 @@ export const useLogin = () => {
       setisLoading(false);
       router.push(`/login/${email}`);
     } catch (error) {
-      console.error("Login error:", error);
+     
       setError(true);
       setisSucess(false);
       setTimeout(() => {
